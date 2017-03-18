@@ -1,4 +1,4 @@
-# save-file [![Build Status](https://travis-ci.org/audiojs/save-file.svg?branch=master)](https://travis-ci.org/audiojs/save-file) [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
+# save-file [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
 Save file in node/browser. In browser it prompts save file dialog, in node it creates a file.
 
