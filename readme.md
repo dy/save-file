@@ -1,6 +1,11 @@
 # save-file [![Build Status](https://travis-ci.org/audiojs/save-file.svg?branch=master)](https://travis-ci.org/audiojs/save-file) [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
-Save/download blob/buffer/datauri in node/browser. In browser it prompts save file dialog, in node it creates a file.
+Save file in node/browser. In browser it prompts save file dialog, in node it creates a file in the same directory as the caller.
+
+* Provides common interface for both node/browser
+* Fixes dialog race in browser
+* Handles different data-types
+* Resolves relative paths in node
 
 ## Usage
 
@@ -16,7 +21,7 @@ save(buffer, 'example.mp3')
 
 ### `save(data, filename, mime?)`
 
-`data` can be almost anything (see [to-array-buffer](https://github.com/dfcreative/to-array-buffer) module): _Buffer_, _ArrayBuffer_, _Blob_, dataURI string, [_AudioBuffer_](https://github.com/audiohs/audio-buffer), _ImageData_, _TypedArray_, _DataView_ etc. Note though that you may need to encode the data manually beforehead, that is wav file, image codecs etc, otherwise `save-file` will just output raw binary sequence.
+`data` can be any binary-like data (see [to-array-buffer](https://github.com/dfcreative/to-array-buffer) module): _Buffer_, _ArrayBuffer_, _Blob_, dataURI string, [_AudioBuffer_](https://github.com/audiohs/audio-buffer), _ImageData_, _TypedArray_, _DataView_ etc. Note though that you may need to encode the data manually beforehead, that is wav file, image codecs etc, otherwise `save-file` will just output raw binary sequence.
 
 `filename` should include desired extension, e.g. `picture.jpg`.
 
