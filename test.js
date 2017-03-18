@@ -1,4 +1,4 @@
-const save = require('../')
+const save = require('./')
 const data2buf = require('data-uri-to-buffer')
 const ab2b = require('arraybuffer-to-buffer')
 const b2ab = require('buffer-to-arraybuffer')
