@@ -37,6 +37,8 @@
     "write": "^0.3.2"
   },
   "devDependencies": {
-    "buffer-to-arraybuffer": "0.0.4"
+    "arraybuffer-to-buffer": "0.0.4",
+    "buffer-to-arraybuffer": "0.0.4",
+    "data-uri-to-buffer": "0.0.4"
   }
 }

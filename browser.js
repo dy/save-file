@@ -7,7 +7,6 @@
 
 var saveAs = require('file-saver').saveAs
 var ab = require('to-array-buffer')
-var isBuffer = require('is-buffer')
 var getMimeType = require('simple-mime')('application/octect-stream');
 var isBlob = require('is-blob')
 

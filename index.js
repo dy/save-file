@@ -25,5 +25,5 @@ module.exports = function save (data, filename) {
 
 	writeFile.sync(filename, data)
 
-	console.log(filename + ' created')
+	process.stdout.write(filename + ' created\n')
 }
