@@ -17,9 +17,7 @@ var save = require('save-file')
 var promise = save(data, 'example.mp3', (err) => {
 	if (err) throw err;
 	//file is saved at this point
-}).then(() => {
-	return save(otherData, 'example2.mp3')
-})
+}).then(() => save(otherData, 'example2.mp3'))
 
 ```
 
