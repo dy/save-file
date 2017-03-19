@@ -1,6 +1,6 @@
 {
   "name": "save-file",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Save file dialog in browser, write file to disk in node",
   "main": "index.js",
   "browser": "browser.js",
