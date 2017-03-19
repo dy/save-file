@@ -14,13 +14,16 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 ```js
 var save = require('save-file')
 
-save(data, 'example.mp3', (err) => {
+var promise = save(data, 'example.mp3', (err) => {
 	if (err) throw err;
 	//file is saved at this point
+}).then(() => {
+	return save(otherData, 'example2.mp3')
 })
+
 ```
 
-### `save(data, filename, done?)`
+### `promise = save(data, filename, done?)`
 
 `data` can be any binary-like data (see [to-array-buffer](https://github.com/dfcreative/to-array-buffer) module): _Buffer_, _ArrayBuffer_, _Blob_, dataURI string, [_AudioBuffer_](https://github.com/audiohs/audio-buffer), _ImageData_, _TypedArray_, _DataView_ etc. Note though that you may need to encode the data manually beforehead, that is wav file, image codecs etc, otherwise `save-file` will just output raw binary sequence.
 
@@ -28,7 +31,7 @@ save(data, 'example.mp3', (err) => {
 
 MIME-type is detected automatically from the `filename` via [simple-mime](https://npmjs.org/package/simple-mime). If you need custom MIME-type, create and pass _Blob_: `save(new Blob([data], {type: 'application/octet-binary}))`.
 
-`done` callback is invoked once file is saved, that is when window got focus in browser.
+`done` callback is invoked once file is saved, that is when window got focus in browser. Alternately, use returned promise object for async sequence.
 
 
 ## Credits & related

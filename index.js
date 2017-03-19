@@ -23,9 +23,17 @@ module.exports = function save (data, filename, done) {
 		filename = path.dirname(stack[1].getFileName()) + path.sep + filename
 	}
 
-	writeFile(filename, data, (err) => {
-		if (!err) process.stdout.write(filename + ' created\n')
-		done && done(err)
+	return new Promise(function (ok, nok) {
+		writeFile(filename, data, function (err) {
+			if (err) {
+				nok(err)
+			}
+			else {
+				process.stdout.write(filename + ' created\n')
+				done && done(err)
+				ok()
+			}
+		})
 	})
 
 }
