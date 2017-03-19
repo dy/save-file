@@ -9,8 +9,8 @@ var writeFile = require('write')
 var ab = require('to-array-buffer')
 var isBuffer = require('is-buffer')
 var isRelative = require('is-relative')
-var callerPath = require('caller-path')
 var path = require('path')
+var callsites = require('callsites')
 
 module.exports = function save (data, filename, done) {
 	if (!isBuffer(data)) {
@@ -18,7 +18,8 @@ module.exports = function save (data, filename, done) {
 	}
 
 	if (isRelative(filename)) {
-		filename = path.dirname(callerPath()) + path.sep + filename
+		var callerPath = callsites()[1].getFileName()
+		filename = path.dirname(callerPath) + path.sep + filename
 	}
 
 	return new Promise(function (ok, nok) {
