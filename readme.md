@@ -14,7 +14,7 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 ```js
 const save = require('save-file')
 
-let promise = save(data, 'example.mp3', (err) => {
+save(data, 'example.mp3', (err) => {
 	if (err) throw err;
 	//file is saved at this point
 }).then(() => save(otherData, 'example2.mp3'))
