@@ -25,13 +25,13 @@ save(data, 'example.mp3', (err) => {
 
 ### `promise = save(data, filename, done?)`
 
-`data` can be any binary-like data (see [to-array-buffer](https://github.com/dfcreative/to-array-buffer) module): _Buffer_, _ArrayBuffer_, _Blob_, dataURI string, [_AudioBuffer_](https://github.com/audiohs/audio-buffer), _ImageData_, _TypedArray_, _DataView_ etc. Note though that you may need to encode the data manually beforehead, that is wav file, image codecs etc, otherwise `save-file` will just output raw binary sequence.
+`data` can be any binary-like data (see [to-array-buffer](https://github.com/dfcreative/to-array-buffer) module): _Buffer_, _ArrayBuffer_, _Blob_, dataURI string, [_AudioBuffer_](https://github.com/audiohs/audio-buffer), _ImageData_, _TypedArray_, _DataView_, [ndarray](https://github.com/scijs/ndarray) etc. Note though that you may need to encode the data manually beforehead, that is wav file, image codecs etc, otherwise `save-file` will just output raw binary sequence.
 
-`filename` should include desired extension, e.g. `picture.jpg`. In node it will place file into the directory of caller module. You may want to define absolute path as `__dirname + 'file.jpg'`.
+`filename` should include desired extension, e.g. `picture.jpg`. In node it will place file into the directory of caller module. You may define absolute path as `__dirname + '/file.jpg'`.
 
-MIME-type is detected automatically from the `filename` via [simple-mime](https://npmjs.org/package/simple-mime). If you need custom MIME-type, create and pass _Blob_: `save(new Blob([data], {type: 'application/octet-binary}))`.
+MIME-type is detected automatically from the `filename` via [simple-mime](https://npmjs.org/package/simple-mime). If you need custom MIME-type, create and pass _Blob_: `save(new Blob([data], {type: 'application/octet-binary}))`. Actual for browser only.
 
-`done` callback is invoked once file is saved, that is when window got focus in browser. Alternately, use returned promise object for async sequence.
+`done` callback is invoked once file is saved in node or window got focus in browser. Alternately, use returned `promise` object.
 
 
 ## Credits & related
