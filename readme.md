@@ -12,9 +12,9 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 [![npm install save-file](https://nodei.co/npm/save-file.png?mini=true)](https://npmjs.org/package/save-file/)
 
 ```js
-var save = require('save-file')
+const save = require('save-file')
 
-var promise = save(data, 'example.mp3', (err) => {
+let promise = save(data, 'example.mp3', (err) => {
 	if (err) throw err;
 	//file is saved at this point
 }).then(() => save(otherData, 'example2.mp3'))
