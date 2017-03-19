@@ -4,7 +4,7 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 
 * Provides common interface for both node/browser
 * Fixes dialog race in browser
-* Handles different data-types
+* Handles different types of input data
 * Resolves relative paths in node
 
 ## Usage

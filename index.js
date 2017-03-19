@@ -23,9 +23,9 @@ module.exports = function save (data, filename, done) {
 		filename = path.dirname(stack[1].getFileName()) + path.sep + filename
 	}
 
-	writeFile(filename, data, () => {
-		process.stdout.write(filename + ' created\n')
-		done && done()
+	writeFile(filename, data, (err) => {
+		if (!err) process.stdout.write(filename + ' created\n')
+		done && done(err)
 	})
 
 }
