@@ -14,16 +14,21 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 ```js
 var save = require('save-file')
 
-save(data, 'example.mp3')
+save(data, 'example.mp3', (err) => {
+	if (err) throw err;
+	//file is saved at this point
+})
 ```
 
-### `save(data, filename, mime?)`
+### `save(data, filename, done?)`
 
 `data` can be any binary-like data (see [to-array-buffer](https://github.com/dfcreative/to-array-buffer) module): _Buffer_, _ArrayBuffer_, _Blob_, dataURI string, [_AudioBuffer_](https://github.com/audiohs/audio-buffer), _ImageData_, _TypedArray_, _DataView_ etc. Note though that you may need to encode the data manually beforehead, that is wav file, image codecs etc, otherwise `save-file` will just output raw binary sequence.
 
-`filename` should include desired extension, e.g. `picture.jpg`. In node it will place file into the directory of caller module.
+`filename` should include desired extension, e.g. `picture.jpg`. In node it will place file into the directory of caller module. You may want to define absolute path as `__dirname + 'file.jpg'`.
 
-`mime` type is automatically detected from the file name via [simple-mime](https://npmjs.org/package/simple-mime), but you may want to point it manually or detect via comprehensive [mime-types](https://npmjs.org/package/mime-types) or from data via [file-type](https://npmjs.org/package/file-type).
+MIME-type is detected automatically from the `filename` via [simple-mime](https://npmjs.org/package/simple-mime). If you need custom MIME-type, create and pass _Blob_: `save(new Blob([data], {type: 'application/octet-binary}))`.
+
+`done` callback is invoked once file is saved, that is when window got focus in browser.
 
 
 ## Credits & related

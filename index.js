@@ -12,7 +12,7 @@ var isRelative = require('is-relative')
 var st = require('stack-trace')
 var path = require('path')
 
-module.exports = function save (data, filename) {
+module.exports = function save (data, filename, done) {
 	if (!isBuffer(data)) {
 		data = Buffer.from(ab(data))
 	}
@@ -23,7 +23,9 @@ module.exports = function save (data, filename) {
 		filename = path.dirname(stack[1].getFileName()) + path.sep + filename
 	}
 
-	writeFile.sync(filename, data)
+	writeFile(filename, data, () => {
+		process.stdout.write(filename + ' created\n')
+		done && done()
+	})
 
-	process.stdout.write(filename + ' created\n')
 }

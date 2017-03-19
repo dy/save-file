@@ -12,30 +12,29 @@ var isBlob = require('is-blob')
 
 var planned = null
 
-module.exports = function save (data, filename, mime) {
+module.exports = function save (data, filename, done) {
 	if (planned) {
 		return planned.then(function () {
-			planned = save(data, filename, mime)
+			planned = save(data, filename, done)
 			return planned
 		})
 	}
 	else {
 		planned = new Promise(function (ok, nok) {
+			//create blob, if not already
 			if (!isBlob(data)) {
 				data = ab(data)
-				if (mime == null) mime = getMimeType(filename)
+				var mime = getMimeType(filename)
 				var blob = new Blob([data], {type: mime})
 			}
-			else {
-				mime = data.type
-			}
 
-			saveAs(blob, filename, mime)
+			saveAs(blob, filename)
 
 			//prompt next dialog only when window got focus back
 			window.addEventListener('focus', function resolve() {
 				planned = null
 				window.removeEventListener('focus', resolve)
+				done && done()
 				ok()
 			})
 		})
