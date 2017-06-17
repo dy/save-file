@@ -1,3 +1,5 @@
+'use strict'
+
 const save = require('./')
 const uri2b = require('data-uri-to-buffer')
 const ab2b = require('arraybuffer-to-buffer')
