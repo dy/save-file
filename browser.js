@@ -17,15 +17,20 @@ module.exports = function save (data, filename, done) {
 		return planned.then(function () {
 			planned = save(data, filename, done)
 			return planned
+		}, function (err) {
+			done && done(err)
 		})
 	}
 	else {
 		planned = new Promise(function (ok, nok) {
 			//create blob, if not already
-			if (!isBlob(data)) {
+			if (!isBlob(data) && !(data instanceof File)) {
 				data = ab(data)
 				var mime = getMimeType(filename)
 				var blob = new Blob([data], {type: mime})
+			}
+			else {
+				blob =  data
 			}
 
 			saveAs(blob, filename)

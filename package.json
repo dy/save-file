@@ -33,12 +33,13 @@
     "is-buffer": "^1.1.5",
     "is-relative": "^0.2.1",
     "simple-mime": "^0.1.0",
-    "to-array-buffer": "^1.2.1",
+    "to-array-buffer": "^2.0.0",
     "write": "^0.3.2"
   },
   "devDependencies": {
     "arraybuffer-to-buffer": "0.0.4",
     "buffer-to-arraybuffer": "0.0.4",
-    "data-uri-to-buffer": "0.0.4"
+    "data-uri-to-buffer": "0.0.4",
+    "is-browser": "^2.0.1"
   }
 }

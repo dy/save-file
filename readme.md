@@ -1,10 +1,10 @@
 # save-file [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
-Save file in node/browser. In browser it prompts save file dialog, in node it creates file.
+Save file in node/browser. In browser it prompts save file dialog, in node it creates a file.
 
 * Provides common interface for both node/browser.
-* Fixes dialog race in browser − when multiple save files are called at the same time.
-* Handles any types of input data − _Buffer_, _ArrayBuffer_, _Blob_, dataURI string, _ImageData_, _TypedArray_ etc.
+* Fixes dialog race in browser − when multiple save-files are called at the same time.
+* Handles any types of input data − _Buffer_, _ArrayBuffer_, _ArrayBufferView_, _File_, _Blob_, data-uri string, _ImageData_ etc.
 * Resolves relative paths in node to the directory of caller module.
 
 ## Usage
@@ -38,6 +38,6 @@ Usually file savers offer MIME-type option, but here MIME-type is detected from 
 ## Credits & related
 
 * [file-saver](https://npmjs.org/package/file-saver) − create download file dialog in browser.
-* [write-file](https://npmjs.org/package/write-file) − write file in node, create directories if none.
+* [write](https://npmjs.org/package/write) − write file in node, create directories if none.
 * [to-array-buffer](https://github.com/dfcreative/to-array-buffer) — turn anything into ArrayBuffer.
 * [simple-mime](https://npmjs.org/package/simple-mime) — tiny mime types detector.
