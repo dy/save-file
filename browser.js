@@ -13,6 +13,21 @@ var isBlob = require('is-blob')
 var planned = null
 
 module.exports = function save (data, filename, done) {
+	if (typeof filename === 'function') {
+		done = filename
+		filename = null
+	}
+
+	//create blob, if not already
+	if (!isBlob(data) && !(data instanceof File)) {
+		data = ab(data)
+		var mime = getMimeType(filename)
+		var blob = new Blob([data], {type: mime})
+	}
+	else {
+		blob = data
+	}
+
 	if (planned) {
 		return planned.then(function () {
 			planned = save(data, filename, done)
@@ -23,15 +38,6 @@ module.exports = function save (data, filename, done) {
 	}
 	else {
 		planned = new Promise(function (ok, nok) {
-			//create blob, if not already
-			if (!isBlob(data) && !(data instanceof File)) {
-				data = ab(data)
-				var mime = getMimeType(filename)
-				var blob = new Blob([data], {type: mime})
-			}
-			else {
-				blob =  data
-			}
 
 			saveAs(blob, filename)
 
@@ -39,7 +45,7 @@ module.exports = function save (data, filename, done) {
 			window.addEventListener('focus', function resolve() {
 				planned = null
 				window.removeEventListener('focus', resolve)
-				done && done()
+				done && done(null, data)
 				ok()
 			})
 		})

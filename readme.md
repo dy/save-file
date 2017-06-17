@@ -14,9 +14,10 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 ```js
 const save = require('save-file')
 
-save(data, 'example.mp3', (err) => {
+save(data, 'example.mp3', (err, data) => {
 	if (err) throw err;
-	//file is saved at this point
+
+	//file is saved at this point, data is arrayBuffer with actual saved data
 })
 .then(() => save(otherData, 'example2.mp3'))
 
