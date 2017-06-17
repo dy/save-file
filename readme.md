@@ -27,11 +27,11 @@ save(data, 'example.mp3', (err, data) => {
 
 ### `promise = save(data, filename, done?)`
 
-`data` type can be _Buffer_, _ArrayBuffer_, _Blob_, dataURI string, [_AudioBuffer_](https://github.com/audiohs/audio-buffer), _ImageData_, _TypedArray_, _DataView_, [ndarray](https://github.com/scijs/ndarray) etc., see [to-array-buffer](https://github.com/dfcreative/to-array-buffer). It does not do encoding though, like wav, image codecs etc.
+`data` type can be _Buffer_, _ArrayBuffer_, _ArrayBufferView_, _File_, _Blob_, dataURI string, _ImageData_, _TypedArray_, _DataView_, [ndarray](https://github.com/scijs/ndarray) etc., see [to-array-buffer](https://github.com/dfcreative/to-array-buffer). It does not encode, like audio/image codecs or string encoding.
 
 `filename` should include extension, e.g. `picture.jpg`. In node file will be placed to the directory of caller module. To redefine path, use `__dirname + '/file.jpg'` or alike.
 
-`done` callback is called when file is saved or window got focus back in browser. Also returned `promise` does the same.
+`done` callback is fired when file is saved or window got focus back in browser. Also returned `promise` does the same.
 
 Usually file savers offer MIME-type option, but here MIME-type is detected from the `filename` via [simple-mime](https://npmjs.org/package/simple-mime). To set custom MIME-type, create _Blob_: `save(new Blob([data], {type: 'application/octet-binary}))`.
 
