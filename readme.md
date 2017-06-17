@@ -1,4 +1,4 @@
-# save-file [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
+# save-file [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/dfcreative/save-file.svg)](https://travis-ci.org/dfcreative/save-file) [![Greenkeeper badge](https://badges.greenkeeper.io/dfcreative/save-file.svg)](https://greenkeeper.io/)
 
 Save file in node/browser. In browser it prompts save file dialog, in node it creates a file.
 
