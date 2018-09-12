@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dfcreative/save-file"
+    "url": "https://github.com/dy/save-file"
   },
   "keywords": [
     "file",
@@ -23,9 +23,9 @@
   "author": "Dima Yv <dfcreative@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dfcreative/save-file/issues"
+    "url": "https://github.com/dy/save-file/issues"
   },
-  "homepage": "https://github.com/dfcreative/save-file",
+  "homepage": "https://github.com/dy/save-file",
   "dependencies": {
     "callsites": "^2.0.0",
     "data-uri-to-buffer": "1.2.0",
@@ -42,6 +42,6 @@
     "arraybuffer-to-buffer": "0.0.4",
     "buffer-to-arraybuffer": "0.0.5",
     "data-uri-to-buffer": "1.0.0",
-    "is-browser": "^2.0.1"
+    "is-browser": "^2.1.0"
   }
 }

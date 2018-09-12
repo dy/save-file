@@ -1,4 +1,4 @@
-# save-file [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/dfcreative/save-file.svg)](https://travis-ci.org/dfcreative/save-file) [![Greenkeeper badge](https://badges.greenkeeper.io/dfcreative/save-file.svg)](https://greenkeeper.io/)
+# save-file [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/dy/save-file.svg)](https://travis-ci.org/dy/save-file) [![Greenkeeper badge](https://badges.greenkeeper.io/dy/save-file.svg)](https://greenkeeper.io/)
 
 Save file in node/browser. In browser it prompts save file dialog, in node it creates a file.
 
@@ -27,7 +27,7 @@ save(data, 'example.mp3', (err, data) => {
 
 ### `promise = save(data, filename, done?)`
 
-`data` type can be _Buffer_, _ArrayBuffer_, _ArrayBufferView_, _File_, _Blob_, dataURI string, _ImageData_, _TypedArray_, _DataView_, [ndarray](https://github.com/scijs/ndarray) etc., see [to-array-buffer](https://github.com/dfcreative/to-array-buffer). It does not encode, like audio/image codecs or string encoding.
+`data` type can be _Buffer_, _ArrayBuffer_, _ArrayBufferView_, _File_, _Blob_, dataURI string, _ImageData_, _TypedArray_, _DataView_, [ndarray](https://github.com/scijs/ndarray) etc., see [to-array-buffer](https://github.com/dy/to-array-buffer). It does not encode, like audio/image codecs or string encoding.
 
 `filename` should include extension, e.g. `picture.jpg`. In node file will be placed to the directory of caller module. To redefine path, use `__dirname + '/file.jpg'` or alike.
 
@@ -40,5 +40,5 @@ Usually file savers offer MIME-type option, but here MIME-type is detected from 
 
 * [file-saver](https://npmjs.org/package/file-saver) − create download file dialog in browser.
 * [write](https://npmjs.org/package/write) − write file in node, create directories if none.
-* [to-array-buffer](https://github.com/dfcreative/to-array-buffer) — turn anything into ArrayBuffer.
+* [to-array-buffer](https://github.com/dy/to-array-buffer) — turn anything into ArrayBuffer.
 * [simple-mime](https://npmjs.org/package/simple-mime) — tiny mime types detector.
