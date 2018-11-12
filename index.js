@@ -44,7 +44,7 @@ module.exports = function save (data, filename, done) {
 				nok(err)
 			}
 			else {
-				process.stdout.write(filename + ' created\n')
+				// process.stdout.write(filename + ' created\n')
 				done && done(null, data)
 				ok()
 			}
