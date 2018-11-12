@@ -14,24 +14,18 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 ```js
 const save = require('save-file')
 
-save(data, 'example.mp3', (err, data) => {
-	if (err) throw err;
-
-	//file is saved at this point, data is arrayBuffer with actual saved data
-})
-.then(() => save(otherData, 'example2.mp3'))
+await save(data, 'example.mp3')
+await save(otherData, 'example2.mp3')
 
 ```
 
 ## API
 
-### `promise = save(data, filename, done?)`
+### `await save(data, filename, callback?)`
 
 `data` type can be _Buffer_, _ArrayBuffer_, _ArrayBufferView_, _File_, _Blob_, dataURI string, _ImageData_, _TypedArray_, _DataView_, [ndarray](https://github.com/scijs/ndarray) etc., see [to-array-buffer](https://github.com/dy/to-array-buffer). It does not encode, like audio/image codecs or string encoding.
 
 `filename` should include extension, e.g. `picture.jpg`. In node file will be placed to the directory of caller module. To redefine path, use `__dirname + '/file.jpg'` or alike.
-
-`done` callback is fired when file is saved or window got focus back in browser. Also returned `promise` does the same.
 
 Usually file savers offer MIME-type option, but here MIME-type is detected from the `filename` via [simple-mime](https://npmjs.org/package/simple-mime). To set custom MIME-type, create _Blob_: `save(new Blob([data], {type: 'application/octet-binary}))`.
 
