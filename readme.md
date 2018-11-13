@@ -21,13 +21,25 @@ await save(otherData, 'example2.mp3')
 
 ## API
 
-### `await save(data, filename, callback?)`
+### `await save(data, filename)`
 
-`data` type can be _Buffer_, _ArrayBuffer_, _ArrayBufferView_, _File_, _Blob_, dataURI string, _ImageData_, _TypedArray_, _DataView_, [ndarray](https://github.com/scijs/ndarray) etc., see [to-array-buffer](https://github.com/dy/to-array-buffer). It does not encode, like audio/image codecs or string encoding.
+Save `data` source to the `filename` destination, return acual saved _ArrayBuffer_.
 
-`filename` should include extension, e.g. `picture.jpg`. In node file will be placed to the directory of caller module. To redefine path, use `__dirname + '/file.jpg'` or alike.
+`data` type can be:
+* _Buffer_, _ArrayBuffer_
+* _File_, _Blob_
+* dataURI, base64 string
+* _TypedArray_, _Array_
+* _ImageData_, _AudioBuffer_
+* _Object_
+* [ndarray](https://github.com/scijs/ndarray)
+* etc.
 
-Usually file savers offer MIME-type option, but here MIME-type is detected from the `filename` via [simple-mime](https://npmjs.org/package/simple-mime). To set custom MIME-type, create _Blob_: `save(new Blob([data], {type: 'application/octet-binary}))`.
+See [to-array-buffer](https://github.com/dy/to-array-buffer) for the full list. The data is expected to be encoded to target format, for that purpose see [image-encode](https://ghub.io/image-encode), [audio-encode](https://ghub.io/audio-encode) etc.
+
+In node, file is created in the directory of the caller module. To redefine path, use `path.join(__dirname, 'file.jpg')` or alike.
+
+Mime type is detected from the file extension/data type automatically.
 
 
 ## Credits & related
@@ -36,3 +48,7 @@ Usually file savers offer MIME-type option, but here MIME-type is detected from 
 * [write](https://npmjs.org/package/write) − write file in node, create directories if none.
 * [to-array-buffer](https://github.com/dy/to-array-buffer) — turn anything into ArrayBuffer.
 * [simple-mime](https://npmjs.org/package/simple-mime) — tiny mime types detector.
+
+## Copyright
+
+© Dmitry Yv 2018. MIT Licensed.

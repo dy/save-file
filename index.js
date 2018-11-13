@@ -10,7 +10,7 @@ var ab = require('to-array-buffer')
 var isBuffer = require('is-buffer')
 var isRelative = require('is-relative')
 var path = require('path')
-var callsites = require('callsites')
+var caller = require('caller-path')
 var str2buf = require('data-uri-to-buffer')
 var arr2buf = require('typedarray-to-buffer')
 
@@ -33,8 +33,7 @@ module.exports = function save (data, filename, done) {
 	}
 
 	if (isRelative(filename)) {
-		var callerPath = callsites()[1].getFileName()
-		filename = path.dirname(callerPath) + path.sep + filename
+		filename = path.join(path.dirname(caller()), filename)
 	}
 
 	return new Promise(function (ok, nok) {
