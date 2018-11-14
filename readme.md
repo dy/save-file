@@ -5,7 +5,6 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 * Provides common interface for both node/browser.
 * Fixes dialog race in browser − when multiple save-files are called at the same time.
 * Handles any types of input data − _Buffer_, _ArrayBuffer_, _ArrayBufferView_, _File_, _Blob_, data-uri string, _ImageData_ etc.
-* Resolves relative paths in node to the directory of caller module.
 
 ## Usage
 
@@ -37,8 +36,6 @@ Save `data` source to the `filename` destination, return actual saved _ArrayBuff
 * etc.
 
 See [to-array-buffer](https://github.com/dy/to-array-buffer) for the full list. The data is expected to be encoded to target format, for that purpose see [image-encode](https://ghub.io/image-encode), [audio-encode](https://ghub.io/audio-encode) etc.
-
-In node, file is created in the directory of the caller module. To redefine path, use `path.join(__dirname, 'file.jpg')` or alike.
 
 Mime type is detected from the file extension/data type automatically.
 

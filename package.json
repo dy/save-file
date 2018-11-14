@@ -27,19 +27,18 @@
   },
   "homepage": "https://github.com/dy/save-file",
   "dependencies": {
-    "caller-path": "^2.0.0",
-    "data-uri-to-buffer": "1.2.0",
     "file-saver": "^2.0.0-rc.4",
-    "file-type": "^10.4.0",
     "is-blob": "^1.0.0",
     "is-buffer": "^2.0.0",
-    "is-relative": "^1.0.0",
     "simple-mime": "^0.1.0",
     "to-array-buffer": "^3.0.0",
-    "typedarray-to-buffer": "^3.1.2",
     "write": "^1.0.0"
   },
   "devDependencies": {
+    "file-type": "^10.4.0",
+    "typedarray-to-buffer": "^3.1.2",
+    "is-relative": "^1.0.0",
+    "data-uri-to-buffer": "1.2.0",
     "arraybuffer-to-buffer": "0.0.4",
     "buffer-to-arraybuffer": "0.0.5",
     "data-uri-to-buffer": "1.0.0",
