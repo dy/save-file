@@ -25,10 +25,10 @@ t('async', async t => {
 		t.ok(await exists('./flag-abuf.jpg'))
 		t.ok(await exists('./flag-abuf'))
 
-		del('./flag-uri.jpg')
-		del('./flag-buf.jpg')
-		del('./flag-abuf.jpg')
-		del('./flag-abuf')
+		await del('./flag-uri.jpg')
+		await del('./flag-buf.jpg')
+		await del('./flag-abuf.jpg')
+		await del('./flag-abuf')
 	}
 
 	t.end()
@@ -46,10 +46,10 @@ t('sync', async t => {
 		t.ok(await exists('./flag-abuf.jpg'))
 		t.ok(await exists('./flag-abuf'))
 
-		del('./flag-uri.jpg')
-		del('./flag-buf.jpg')
-		del('./flag-abuf.jpg')
-		del('./flag-abuf')
+		await del('./flag-uri.jpg')
+		await del('./flag-buf.jpg')
+		await del('./flag-abuf.jpg')
+		await del('./flag-abuf')
 	}
 
 	t.end()

@@ -18,7 +18,7 @@ function save (data, filename, write) {
 	}
 
 	if (!write) write = writeFile
-	return writeFile(filename, data)
+	return write(filename, data)
 }
 
 function saveSync (data, filename) {
