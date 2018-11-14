@@ -65,3 +65,5 @@ t('file, blob', t => {
 
 	t.end()
 })
+
+t('ArrayBuffer, Uint8Array etc inputs')

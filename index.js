@@ -14,7 +14,7 @@ module.exports.sync = saveSync
 
 function save (data, filename, write) {
 	if (!isBuffer(data)) {
-		data = ab(data) || Buffer.from(data)
+		data = Buffer.from(ab(data) || data)
 	}
 
 	if (!write) write = writeFile
