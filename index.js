@@ -11,43 +11,23 @@ var isBuffer = require('is-buffer')
 var isRelative = require('is-relative')
 var path = require('path')
 var caller = require('caller-path')
-var str2buf = require('data-uri-to-buffer')
-var arr2buf = require('typedarray-to-buffer')
 
-module.exports = function save (data, filename, done) {
+module.exports = save
+module.exports.sync = saveSync
+
+function save (data, filename, write) {
 	if (!isBuffer(data)) {
-		try {
-			if (typeof data === 'string') {
-				data = str2buf(data)
-			}
-			else if (ArrayBuffer.isView(data)) {
-				data = arr2buf(data)
-			}
-			else {
-				data = Buffer.from(ab(data))
-			}
-		}
-		catch (e) {
-			data = Buffer.from(data)
-		}
+		data = ab(data) || Buffer.from(data)
 	}
 
 	if (isRelative(filename)) {
 		filename = path.join(path.dirname(caller()), filename)
 	}
 
-	return new Promise(function (ok, nok) {
-		writeFile(filename, data, function (err) {
-			if (err) {
-				done && done(err)
-				nok(err)
-			}
-			else {
-				// process.stdout.write(filename + ' created\n')
-				done && done(null, data)
-				ok()
-			}
-		})
-	})
+	if (!write) write = writeFile
+	return writeFile(filename, data)
+}
 
+function saveSync (data, filename) {
+	return save(data, filename, writeFile.sync)
 }

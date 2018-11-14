@@ -22,8 +22,9 @@ await save(otherData, 'example2.mp3')
 ## API
 
 ### `await save(data, filename)`
+### `save.sync(data, filename)`
 
-Save `data` source to the `filename` destination, return acual saved _ArrayBuffer_.
+Save `data` source to the `filename` destination, return actual saved _ArrayBuffer_. `save.sync` performs synchronous call.
 
 `data` type can be:
 * _Buffer_, _ArrayBuffer_
