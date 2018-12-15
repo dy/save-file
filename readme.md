@@ -14,14 +14,14 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 const save = require('save-file')
 
 await save(data, 'example.mp3')
-await save(otherData, 'example2.mp3')
 
+const saveSync = require('save-file/sync')
+saveSync(otherData, 'example2.mp3')
 ```
 
 ## API
 
-### `await save(data, filename)`
-### `save.sync(data, filename)`
+### `await save(data|filename, filename|data)`
 
 Save `data` source to the `filename` destination, return actual saved _ArrayBuffer_. `save.sync` performs synchronous call.
 

@@ -6,29 +6,30 @@
 'use strict'
 
 var saveAs = require('file-saver').saveAs
-var ab = require('to-array-buffer')
-var getMimeType = require('simple-mime')('application/octect-stream');
-var isBlob = require('is-blob')
+var toBlob = require('./src/to-blob')
 
 var planned = null
 
 module.exports = save
-module.exports.sync = saveSync
+module.exports.sync = require('./browser-sync')
 
-function save (data, filename, done) {
-	if (typeof filename === 'function') {
-		done = filename
-		filename = null
+function save (data, filename) {
+	// swap data/filename
+	if (typeof data === 'string') {
+		// writing string to string - take the lengthier
+		if (typeof filename !== 'string' || filename.length > data.length) {
+			var x = filename
+			filename = data
+			data = x
+		}
 	}
 
 	var blob = toBlob(data, filename)
 
 	if (planned) {
 		return planned.then(function () {
-			planned = save(data, filename, done)
+			planned = save(data, filename)
 			return planned
-		}, function (err) {
-			done && done(err)
 		})
 	}
 	else {
@@ -40,26 +41,10 @@ function save (data, filename, done) {
 			window.addEventListener('focus', function resolve() {
 				planned = null
 				window.removeEventListener('focus', resolve)
-				done && done(null, data)
 				ok()
 			})
 		})
 
 		return planned
 	}
-}
-
-function saveSync (data, filename) {
-	return saveAs(toBlob(data, filename), filename)
-}
-
-function toBlob (data, filename) {
-	//create blob, if not already
-	if (!isBlob(data) && !(data instanceof File)) {
-		data = ab(data)
-		var mime = getMimeType(filename || '')
-		data = new Blob([data], {type: mime})
-	}
-
-	return data
 }
