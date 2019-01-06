@@ -34,7 +34,7 @@
     "is-blob": "^1.0.0",
     "is-buffer": "^2.0.0",
     "simple-mime": "^0.1.0",
-    "to-array-buffer": "^3.0.0",
+    "to-array-buffer": "^3.2.0",
     "write": "^1.0.0"
   },
   "devDependencies": {
