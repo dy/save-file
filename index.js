@@ -10,7 +10,7 @@ var ab = require('to-array-buffer')
 var isBuffer = require('is-buffer')
 
 module.exports = save
-module.exports.sync = require('./sync')
+module.exports.save = save
 
 function save (data, filename, write) {
 	// swap data/filename
@@ -29,4 +29,8 @@ function save (data, filename, write) {
 
 	if (!write) write = writeFile
 	return write(filename, data)
+}
+
+module.exports.saveSync = function saveSync (data, filename) {
+	return save(data, filename, writeFile.sync)
 }

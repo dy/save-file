@@ -1,6 +1,7 @@
 'use strict'
 
 const save = require('./')
+const saveSync = save.saveSync
 const uri2b = require('data-uri-to-buffer')
 const ab2b = require('arraybuffer-to-buffer')
 const b2ab = require('buffer-to-arraybuffer')
@@ -35,10 +36,10 @@ t('async', async t => {
 })
 
 t('sync', async t => {
-	save.sync(flag, 'flag-uri.jpg'),
-	save.sync(uri2b(flag), 'flag-buf.jpg'),
-	save.sync(b2ab(uri2b(flag)), 'flag-abuf.jpg'),
-	save.sync(b2ab(uri2b(flag)), 'flag-abuf')
+	saveSync(flag, 'flag-uri.jpg'),
+	saveSync(uri2b(flag), 'flag-buf.jpg'),
+	saveSync(b2ab(uri2b(flag)), 'flag-abuf.jpg'),
+	saveSync(b2ab(uri2b(flag)), 'flag-abuf')
 
 	if (!isBrowser) {
 		t.ok(await exists('./flag-uri.jpg'))

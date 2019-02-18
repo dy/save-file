@@ -11,7 +11,8 @@ var toBlob = require('./src/to-blob')
 var planned = null
 
 module.exports = save
-module.exports.sync = require('./browser-sync')
+module.exports.save = save
+module.exports.saveSync = saveSync
 
 function save (data, filename) {
 	// swap data/filename
@@ -47,4 +48,8 @@ function save (data, filename) {
 
 		return planned
 	}
+}
+
+function saveSync (data, filename) {
+	return saveAs(toBlob(data, filename), filename)
 }

@@ -3,10 +3,7 @@
   "version": "2.2.1",
   "description": "Save file dialog in browser, write file to disk in node",
   "main": "index.js",
-  "browser": {
-    "index.js": "browser.js",
-    "sync.js": "browser-sync.js"
-  },
+  "browser": "browser.js",
   "scripts": {
     "test": "node test"
   },
