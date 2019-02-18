@@ -11,7 +11,8 @@ Save file in node/browser. In browser it prompts save file dialog, in node it cr
 [![npm install save-file](https://nodei.co/npm/save-file.png?mini=true)](https://npmjs.org/package/save-file/)
 
 ```js
-const save = require('save-file')
+// const save = require('save-file')
+import { save } from 'save-file'
 
 await save(data, 'example.mp3')
 
@@ -23,7 +24,7 @@ saveSync(otherData, 'example2.mp3')
 
 ### `await save(data|filename, filename|data)`
 
-Save `data` source to the `filename` destination, return actual saved _ArrayBuffer_. `save.sync` performs synchronous call.
+Save `data` source to the `filename` destination, return actual saved _ArrayBuffer_. `saveSync` performs synchronous call.
 
 `data` type can be:
 * _Buffer_, _ArrayBuffer_
