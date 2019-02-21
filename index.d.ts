@@ -1,3 +1,3 @@
 export = save;
 
-declare function save (data: any, filename: any) : Promise;
+declare function save (data: any, filename: any): Promise<any>;
