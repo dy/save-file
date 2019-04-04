@@ -38,7 +38,7 @@
     "file-type": "^10.4.0",
     "typedarray-to-buffer": "^3.1.2",
     "is-relative": "^1.0.0",
-    "data-uri-to-buffer": "1.0.0",
+    "data-uri-to-buffer": "2.0.1",
     "arraybuffer-to-buffer": "0.0.5",
     "buffer-to-arraybuffer": "0.0.5",
     "del": "^4.0.0",
