@@ -35,7 +35,7 @@
     "write": "^1.0.0"
   },
   "devDependencies": {
-    "file-type": "^10.4.0",
+    "file-type": "^11.0.0",
     "typedarray-to-buffer": "^3.1.2",
     "is-relative": "^1.0.0",
     "data-uri-to-buffer": "1.0.0",
