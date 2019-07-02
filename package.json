@@ -41,7 +41,7 @@
     "data-uri-to-buffer": "1.0.0",
     "arraybuffer-to-buffer": "0.0.5",
     "buffer-to-arraybuffer": "0.0.5",
-    "del": "^4.0.0",
+    "del": "^5.0.0",
     "is-browser": "^2.1.0",
     "path-exists": "^3.0.0",
     "tape": "^4.9.1"
